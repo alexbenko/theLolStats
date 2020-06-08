@@ -2,12 +2,14 @@
   "name": "thelolstats",
   "version": "3.0.0",
   "description": "A League Of Legends Stat Website",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "start": "nodemon server/server.js",
+    "start": "node server/server.js",
     "build": "webpack --w --mode development",
     "build-prod": "webpack --mode production",
-    "heroku-postbuild": "cd client && npm install --only=production && npm install"
+    "docker-build": "npm run build-prod && docker build . -t lol",
+    "docker-run": "docker run -p 4200:4200 lol",
+    "heroku": "heroku container:push web"
   },
   "repository": {
     "type": "git",
