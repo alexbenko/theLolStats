@@ -1,2 +1,3 @@
 node_modules
-client/config
+client/rito.js
+client/dist/bundle.js
