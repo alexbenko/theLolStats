@@ -17,10 +17,10 @@ class App extends React.Component {
     super(props)
     this.state = {
       loaded:false,
-      currentProfile: exampleProfileData,
+      currentProfile: [],
       encyptedId: null,
-      currentChamps: exampleChampData,
-      rankData: exampleRankData
+      currentChamps: [],
+      rankData: []
     }
   }
 
