@@ -12,12 +12,8 @@ const searchForChampions = ({encryptedId,key}, cb) =>{
       cb(res.data);
     })
     .catch((error) => {
-      if(error.response){
-        console.log(error.response.data);
-        console.log(error.response.response);
-      }
-    })
-
+      console.error(error);
+    });
 };
 
 

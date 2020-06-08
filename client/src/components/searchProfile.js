@@ -9,14 +9,10 @@ const searchForProfile = ({search,key},cb) => {
     console.log('Getting Profile Data');
     axios.get(proxy + target)
       .then((res) =>{
-
         cb(res.data);
       })
       .catch((error) => {
-        if(error.response){
-          console.log(error.response.data);
-          console.log(error.response.response);
-        }
+        console.error(error);
       })
 
 };

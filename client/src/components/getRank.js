@@ -12,7 +12,6 @@ const getRank = ({encryptedId,key},cb) =>{
   })
   .catch((err)=>{
     console.error("Error:",err);
-
   })
 };
 
