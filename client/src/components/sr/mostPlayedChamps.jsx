@@ -8,10 +8,10 @@ let MostPlayedChamps = ({champs}) => {
       <h3>Most Played Champs</h3>
     <div className="champList">
 
-      {champs.map((champ) => {
+      {champs.map((champ,i) => {
 
         return (
-          <div className="champions-container">
+          <div className="champions-container" key={i}>
             {/*TODO Figure out a way to remove ' from champ names like Cho'Gath so it displays image correctly */}
             <img src={`http://ddragon.leagueoflegends.com/cdn/10.9.1/img/champion/${getChampionName(champ["championId"])}.png`}/>
             <h3>{getChampionName(champ["championId"])}</h3>
