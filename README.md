@@ -11,3 +11,9 @@ Recieves a 100/100 on Google PageSpeed Insights<br />
 
 ![LOLSTats Demo](/ver3.gif)
 
+
+<br />
+Related: <br />
+
+Outdated Version: https://github.com/alexbenko/lolstats <br />
+
