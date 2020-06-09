@@ -76,7 +76,7 @@ class Sr extends React.Component {
       return (
 
         <div>
-          <h1>LOLStats</h1>
+          <h1>TheLOLStats</h1>
           <nav className="nav">
             <Search handleSearchChange={this.getProfile.bind(this)} />
           </nav>
@@ -87,7 +87,7 @@ class Sr extends React.Component {
 
       return (
         <div>
-          <h1>LOLStats</h1>
+          <h1>TheLOLStats</h1>
           <nav className="nav">
             <Search handleSearchChange={this.getProfile.bind(this)} />
           </nav>
