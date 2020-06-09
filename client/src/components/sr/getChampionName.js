@@ -1,5 +1,5 @@
 //converts the championid to a champion name
-import champInfo from './championId.jsx';
+import champInfo from './championId.js';
 
 let getChampionName = (idPair) =>{
   let champName = champInfo[idPair];
