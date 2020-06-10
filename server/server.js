@@ -19,6 +19,21 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(cors());
 app.use(morgan('dev'));
 
+const checkIfUserHasRank = (rankInfo) =>{
+  if(rankInfo.length === 0 ) {
+    return (' Unranked');
+  } else {
+    return (rankInfo.tier + ' ' + rankInfo.rank);
+  }
+};
+
+const checkWins = (rankInfo) =>{
+  if(rankInfo.length === 0) {
+    return (' No Ranked Data Available For this Season')
+  } else {
+    return (rankInfo.wins)
+  }
+};
 //for some reason importing this function from another file converted it to an object
 //TODO: Figure out why and how to fix it
 //TODO: Refractor to be promies instead of this callback hell
@@ -32,21 +47,16 @@ let sendSoloProfileData = (summoner,KEY,cb) =>{
     profileData.profileIconId = profile["profileIconId"];
 
     getRankData(profileData.id,KEY,(rank)=>{
-      //order of the array returned can change from day to day
-      if(rank[0]["queueType"] === "RANKED_SOLO_5x5"){
-        profileData.tier = rank[0]["tier"];
-        profileData.rank = rank[0]["rank"];
-        profileData.wins = rank[0]["wins"];
+      //order of the array returned can change from  day to day
+        let wins = checkWins(rank[0]);
+        let rankAndTier = checkIfUserHasRank(rank[0]);
+
+        profileData.rank = rankAndTier;
+        profileData.wins = wins;
         profileData.hotStreak = rank[0]["hotStreak"];
 
-      } else {
-        profileData.tier = rank[1]["tier"];
-        profileData.rank = rank[1]["rank"];
-        profileData.wins = rank[1]["wins"];
-        profileData.hotStreak = rank[1]["hotStreak"];
-      }
       getChampData(profileData.id,KEY,(champData)=>{
-        console.log(profileData)
+
         profileData.champData = champData;
         //ran into a scoping issue where i called the callbaxk outside of this and it send back an empty object
         cb(profileData);
