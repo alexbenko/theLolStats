@@ -1,30 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Sr from './sr/Sr.jsx';
 import Tft from './tft/Tft.jsx';
-
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
-
-import { HashRouter } from 'react-router-dom'
 import RIOT_API_KEY from '../../rito.js';
 
-
-class App extends React.Component{
-  constructor(props){
-    super(props)
-  }
-
-  render(){
+import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Button'
+let App = ()=>{
     return (
-      <div>
+      <div className="lol-home">
+
         <Sr RIOT_API_KEY={RIOT_API_KEY}/>
+
       </div>
     );
-  }
-}
+
+};
 
 export default App;

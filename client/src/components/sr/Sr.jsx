@@ -75,8 +75,8 @@ class Sr extends React.Component {
     if(!loaded){
       return (
 
-        <div>
-          <h1>TheLOLStats</h1>
+        <div className="sr">
+             <h3 style={{color:"rgb(56, 182, 255)"}}>Solo Duo Stats</h3>
           <nav className="nav">
             <Search handleSearchChange={this.getProfile.bind(this)} />
           </nav>
@@ -86,9 +86,9 @@ class Sr extends React.Component {
     }
 
       return (
-        <div>
-          <h1>TheLOLStats</h1>
-          <nav className="nav">
+        <div className="sr">
+             <h3 style={{color:"rgb(56, 182, 255)"}}>Solo Duo Stats</h3>
+          <nav className="nav" style={{textAlignt:"center"}}>
             <Search handleSearchChange={this.getProfile.bind(this)} />
           </nav>
 

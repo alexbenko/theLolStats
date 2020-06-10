@@ -1,4 +1,5 @@
-const champInfo = { '1': 'Annie',
+const champInfo = {
+'1': 'Annie',
 '2': 'Olaf',
 '3': 'Galio',
 '4': 'Twisted Fate',
@@ -145,6 +146,8 @@ const champInfo = { '1': 'Annie',
 '518': 'Neeko',
 '523': 'Aphelios',
 '555': 'Pyke',
-'875': 'Sett' };
+'875': 'Sett'
+};
 
   export default champInfo
+  //module.exports = champInfo;

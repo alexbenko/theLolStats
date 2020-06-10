@@ -7,11 +7,11 @@ body{
 }
 
 h1{
-  color: wheat;
+  color: rgb(56, 182, 255);
 }
 
 .prof{
-  color: wheat;
+  color: rgb(56, 182, 255);
 }
 
 .search{
@@ -20,7 +20,7 @@ h1{
 }
 
 .champions{
-  border: 3px solid beige;
+  border: 3px solid rgb(56, 182, 255);
 }
 
 .champions-container{
@@ -42,7 +42,4 @@ body {
 
 li{
   text-decoration: none;
-  color: wheat;
-
 }
-
