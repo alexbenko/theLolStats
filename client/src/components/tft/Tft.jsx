@@ -31,6 +31,8 @@ class Tft extends React.Component{
         <div className="Tft">
           <h1>TFT</h1>
           <Button variant="secondary" onClick={this.goHome}>Home</Button>
+
+          <h1 style={{textAlign:"center"}}>COMING SOON CHECK BACK AGAIN LATER</h1>
         </div>
       )
     }
