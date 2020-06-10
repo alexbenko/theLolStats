@@ -86,6 +86,10 @@ class Sr extends React.Component {
             <Search handleSearchChange={this.getProfile.bind(this)} />
           </nav>
 
+          <div>
+            <h2 style={{textAlign:"center"}}>Type in any League Of Legends Username and click Search</h2>
+          </div>
+
         </div>
       );
     } else if(loaded){
@@ -93,7 +97,7 @@ class Sr extends React.Component {
         <div className="sr">
              <h3 style={{color:"rgb(56, 182, 255)"}}>Solo Duo Stats</h3>
              <Button variant="secondary" onClick={this.goHome}>Home</Button>
-          <nav className="nav" style={{textAlignt:"center"}}>
+          <nav className="nav" style={{textAlign:"center"}}>
             <Search handleSearchChange={this.getProfile.bind(this)} />
           </nav>
 
