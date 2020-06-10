@@ -9,6 +9,7 @@ LICENSE
 .vscode
 client/src
 client/rito.js
-ver3.gif
+ver.gif
 webpack.config.js
 champ.js
+*.gif

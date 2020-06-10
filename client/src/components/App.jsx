@@ -1,19 +1,21 @@
 import React, { useState } from 'react';
 import Sr from './sr/Sr.jsx';
 import Tft from './tft/Tft.jsx';
-import RIOT_API_KEY from '../../rito.js';
+import Welcome from './Welcome.jsx'
 
-import Modal from 'react-bootstrap/Modal';
-import Button from 'react-bootstrap/Button'
-let App = ()=>{
-    return (
-      <div className="lol-home">
 
-        <Sr RIOT_API_KEY={RIOT_API_KEY}/>
+class App extends React.Component{
+    constructor(props){
+      super(props);
 
-      </div>
-    );
+    }
 
-};
+    render(){
+      return (
+        <Welcome />
+      )
+    }
+
+}
 
 export default App;
