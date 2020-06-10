@@ -42,8 +42,16 @@ class Welcome extends React.Component{
           <h1 style={{textAlign:"center"}}>Welcome!</h1>
           <h2 style={{textAlign:"center",color:"rgb(56, 182, 255)"}}>Choose A Game Mode!</h2>
 
-          <Button variant="primary" value="sr" onClick={this.changeDisplay} size="lg">Summoner's Rift: Solo Duo</Button>
-          <Button variant="success" value="tft" onClick={this.changeDisplay} size="lg">      Tft       </Button>
+          <div style={{textAlign:"center"}} className="home-buttons-holder">
+            <div className="sr-sd-holder" >
+              <Button variant="primary" value="sr" onClick={this.changeDisplay} size="lg">Summoner's Rift: Solo Duo</Button>
+            </div>
+
+            <div className="tft-button" style={{paddingTop:"1%"}}>
+              <Button variant="success" value="tft" onClick={this.changeDisplay} size="lg">      Tft       </Button>
+            </div>
+          </div>
+
         </div>
       )
     }
