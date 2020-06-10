@@ -33,13 +33,21 @@ class Sr extends React.Component {
     .then((res)=>{
 
       this.setState({
-        profileData:res.data
-      })
+        profileData:res.data,
+        loaded:true
+      },()=>console.log(this.state.profileData))
     })
     .catch((err)=>{
       console.error('Error Retrieving Profile Data',err);
     })
 
+  }
+
+  goHome(){
+    console.log('Home')
+    this.setState({
+      goHome: true
+    })
   }
 
   render() {
@@ -63,13 +71,14 @@ class Sr extends React.Component {
 
           <div style={{color:"rgb(56, 182, 255)",textAlign:"center"}}>
             <h2>Type in any League Of Legends Summoner Name and click Search</h2>
-            <h2>This is not case sensitive and spaces down matter</h2>
-            <h3>c9zven === C9Zven === C9 Zven</h3>
+            <h2>This is not case sensitive and spaces do not matter</h2>
+            <h3>c9zven = C9Zven = C9 Zven</h3>
           </div>
 
         </div>
       );
     } else if(loaded){
+      console.log('Loaded!!!!!!!!!!!!')
       return (
         <div className="sr">
              <h3 style={{color:"rgb(56, 182, 255)"}}>Solo Duo Stats</h3>
@@ -79,8 +88,8 @@ class Sr extends React.Component {
           </nav>
 
           <div className ='prof'>
-            <Profile profile={this.state.profileData} rank={this.state.rankData} />
-            <MostPlayedChamps champs={this.state.currentChamps}/>
+            <Profile profile={this.state.profileData}  />
+            <MostPlayedChamps champs={this.state.profileData.champData}/>
           </div>
 
         </div>
