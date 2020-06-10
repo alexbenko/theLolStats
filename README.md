@@ -9,7 +9,7 @@ Visit Live Version At: https://thelolstats.herokuapp.com/ <br />
 Recieves a 100/100 on Google PageSpeed Insights<br />
 
 
-![LOLSTats Demo](/ver3.gif)
+![LOLSTats Demo](/ver.gif)
 
 
 <br />
