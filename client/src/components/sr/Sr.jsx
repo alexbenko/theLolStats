@@ -1,13 +1,13 @@
 import React from 'react';
+import axios from 'axios';
 import Profile from './Profile.jsx'
 import Search from './Search.jsx'
 import MostPlayedChamps from './mostPlayedChamps.jsx';
-import searchForProfile from './searchProfile.js';
-import searchForChamps from './searchChamps.js';
-import getRank from './getRank.js';
+
 import Welcome from '../Welcome.jsx';
 import Button from 'react-bootstrap/Button';
 
+//https://stackoverflow.com/questions/45992682/calling-functions-after-state-change-occurs-in-reactjs
 //right now only works with NA accounts
 //can set up a drop down menu for user to select region
 
@@ -20,51 +20,26 @@ class Sr extends React.Component {
       encyptedId: null,
       currentChamps: [],
       rankData: [],
-      goHome: false
+      goHome: false,
+      profileData:{}
     }
     this.goHome = this.goHome.bind(this);
+    this.searchForSummoner = this.searchForSummoner.bind(this);
   }
 
-  getProfile(search){
-    let searchObj = {
-      key : this.props.RIOT_API_KEY,
-      search: search
-    };
+  searchForSummoner(summoner){
 
-    //https://stackoverflow.com/questions/45992682/calling-functions-after-state-change-occurs-in-reactjs
-    searchForProfile (searchObj, (profile) =>
+    axios.get(`/sr/${summoner}`,{params: {toSearch: summoner}})
+    .then((res)=>{
+
       this.setState({
-        loded:true,
-        currentProfile: profile
-
-      }, () =>{
-        this.rank()
-        })
-    );
-
-  }
-
-  rank(){
-    getRank ({encryptedId: this.state.currentProfile["id"], key: this.props.RIOT_API_KEY}, (rank) =>{
-      this.setState({
-        rankData: rank
-        }, () => {
-          searchForChamps ({encryptedId: this.state.currentProfile["id"], key: this.props.RIOT_API_KEY}, (champData) =>
-             this.setState({
-              currentChamps: champData,
-              loaded: true
-             })
-          );
-
+        profileData:res.data
       })
-    });
-  }
-
-  goHome(){
-    console.log('Home')
-    this.setState({
-      goHome: true
     })
+    .catch((err)=>{
+      console.error('Error Retrieving Profile Data',err);
+    })
+
   }
 
   render() {
@@ -83,11 +58,13 @@ class Sr extends React.Component {
              <h3 style={{color:"rgb(56, 182, 255)"}}>Solo Duo Stats</h3>
              <Button variant="secondary" onClick={this.goHome}>Home</Button>
           <nav className="nav">
-            <Search handleSearchChange={this.getProfile.bind(this)} />
+            <Search handleSearchChange={this.searchForSummoner} />
           </nav>
 
-          <div>
-            <h2 style={{textAlign:"center"}}>Type in any League Of Legends Summoner Name and click Search</h2>
+          <div style={{color:"rgb(56, 182, 255)",textAlign:"center"}}>
+            <h2>Type in any League Of Legends Summoner Name and click Search</h2>
+            <h2>This is not case sensitive and spaces down matter</h2>
+            <h3>c9zven === C9Zven === C9 Zven</h3>
           </div>
 
         </div>
@@ -98,11 +75,11 @@ class Sr extends React.Component {
              <h3 style={{color:"rgb(56, 182, 255)"}}>Solo Duo Stats</h3>
              <Button variant="secondary" onClick={this.goHome}>Home</Button>
           <nav className="nav" style={{textAlign:"center"}}>
-            <Search handleSearchChange={this.getProfile.bind(this)} />
+            <Search handleSearchChange={this.searchForSummoner} />
           </nav>
 
           <div className ='prof'>
-            <Profile profile={this.state.currentProfile} rank={this.state.rankData} />
+            <Profile profile={this.state.profileData} rank={this.state.rankData} />
             <MostPlayedChamps champs={this.state.currentChamps}/>
           </div>
 
