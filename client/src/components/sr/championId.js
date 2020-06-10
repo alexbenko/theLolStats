@@ -150,3 +150,4 @@ const champInfo = {
 };
 
   export default champInfo
+  //module.exports = champInfo;
