@@ -5,13 +5,11 @@ import MostPlayedChamps from './mostPlayedChamps.jsx';
 import searchForProfile from './searchProfile.js';
 import searchForChamps from './searchChamps.js';
 import getRank from './getRank.js';
-import Cookies from 'universal-cookie';
-
-const cookies = new Cookies();
+import Welcome from '../Welcome.jsx';
+import Button from 'react-bootstrap/Button';
 
 //right now only works with NA accounts
 //can set up a drop down menu for user to select region
-
 
 class Sr extends React.Component {
   constructor(props){
@@ -21,8 +19,10 @@ class Sr extends React.Component {
       currentProfile: [],
       encyptedId: null,
       currentChamps: [],
-      rankData: []
+      rankData: [],
+      goHome: false
     }
+    this.goHome = this.goHome.bind(this);
   }
 
   getProfile(search){
@@ -60,34 +60,39 @@ class Sr extends React.Component {
     });
   }
 
-  componentDidMount(){
-
-    /*
-    cookies.set('myCat', 'Pacman', { path: '/cat' });
-    console.log(cookies.get('myCat'));
-    */
+  goHome(){
+    console.log('Home')
+    this.setState({
+      goHome: true
+    },()=>console.log(this.state.goHome))
   }
 
   render() {
 
     let {loaded} = this.state;
+    let {goHome} = this.state;
 
-    if(!loaded){
+    if(goHome){
+      return (
+        <Welcome />
+      );
+    } else if(!loaded){
       return (
 
         <div className="sr">
              <h3 style={{color:"rgb(56, 182, 255)"}}>Solo Duo Stats</h3>
+             <Button variant="secondary" onClick={this.goHome}>Home</Button>
           <nav className="nav">
             <Search handleSearchChange={this.getProfile.bind(this)} />
           </nav>
 
         </div>
       );
-    }
-
+    } else if(loaded){
       return (
         <div className="sr">
              <h3 style={{color:"rgb(56, 182, 255)"}}>Solo Duo Stats</h3>
+             <Button variant="secondary" onClick={this.goHome}>Home</Button>
           <nav className="nav" style={{textAlignt:"center"}}>
             <Search handleSearchChange={this.getProfile.bind(this)} />
           </nav>
@@ -99,7 +104,7 @@ class Sr extends React.Component {
 
         </div>
       );
-
+    }
   };
 
 }
