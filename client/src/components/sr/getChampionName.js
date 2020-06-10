@@ -1,6 +1,6 @@
 //converts the championid to a champion name
 import champInfo from './championId.js';
-//const champInfo = require('./championId.js');
+
 const capitalizeFirstLetter = (string) =>{
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
@@ -8,6 +8,7 @@ const capitalizeFirstLetter = (string) =>{
 let getChampionName = (idPair) =>{
   let champName = champInfo[idPair];
 
+  //edgecases
   if(champName === "Nunu & Willump"){
     return "Nunu";
   } else if(champName === "Rek\'Sai"){
