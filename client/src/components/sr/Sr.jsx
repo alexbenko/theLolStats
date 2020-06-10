@@ -64,7 +64,7 @@ class Sr extends React.Component {
     console.log('Home')
     this.setState({
       goHome: true
-    },()=>console.log(this.state.goHome))
+    })
   }
 
   render() {
