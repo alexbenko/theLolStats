@@ -1,13 +1,11 @@
-//get request that needs accounts encrypted ID, and my API key
-import axios from 'axios';
+const axios = require('axios');
 
-const searchForChampions = ({encryptedId,key}, cb) =>{
-  //change the state inside the get request
+const getChampData = (encryptedId,key, cb) =>{
   let proxy = 'https://lolstats-cors-proxy.herokuapp.com/';
   let target = `https://na1.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-summoner/${encryptedId}?api_key=${key}`;
 
   console.log('Getting Champion Data');
-  axios.get(proxy + target)
+  axios.get(target)
     .then(res => {
       cb(res.data);
     })
@@ -16,5 +14,4 @@ const searchForChampions = ({encryptedId,key}, cb) =>{
     });
 };
 
-
-export default searchForChampions
+module.exports = getChampData;
