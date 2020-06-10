@@ -35,7 +35,7 @@ class Sr extends React.Component {
       this.setState({
         profileData:res.data,
         loaded:true
-      },()=>console.log(this.state.profileData))
+      })
     })
     .catch((err)=>{
       console.error('Error Retrieving Profile Data',err);
