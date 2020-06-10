@@ -87,7 +87,7 @@ class Sr extends React.Component {
           </nav>
 
           <div>
-            <h2 style={{textAlign:"center"}}>Type in any League Of Legends Username and click Search</h2>
+            <h2 style={{textAlign:"center"}}>Type in any League Of Legends Summoner Name and click Search</h2>
           </div>
 
         </div>
