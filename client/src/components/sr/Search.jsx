@@ -9,26 +9,33 @@ class Search extends React.Component{
     super(props);
 
     this.state = {
-      search: ''
+      search: ""
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
     this.submitSearch = this.submitSearch.bind(this);
+    this.clearSearch = this.clearSearch.bind(this);
   }
 
   handleInputChange(search){
-    console.log(search)
-    //this.props.handleSearchChange(search.target.value);
+
     this.setState({
       search: search.target.value,
-    })
+    });
   }
 
   submitSearch(event){
-    event.preventDefault();
+    //event.preventDefault();
 
     this.props.handleSearchChange(this.state.search);
+    this.clearSearch();
+  }
 
+  clearSearch(){
+    console.log('Clicked');
+    this.setState({
+      search: ""
+    })
   }
 
   render(){
@@ -36,11 +43,10 @@ class Search extends React.Component{
 
     <div className="search" style={{paddingBottom:"7em",paddingLeft:"35%"}}>
 
-
-        <InputGroup className="text-center" style={{width:"40%"}}>
+        <InputGroup className="text-center" style={{width:"40%"}} >
           <FormControl
 
-            value={this.state.value}
+            value={this.state.search}
             onChange={this.handleInputChange}
             placeholder="Search For A Summoner..."
             aria-label="Search For A Summoner..."
@@ -50,9 +56,6 @@ class Search extends React.Component{
             <Button variant="primary" onClick={this.submitSearch}>Search</Button>
           </InputGroup.Append>
         </InputGroup>
-
-
-
 
     </div>
     )
