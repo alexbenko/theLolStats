@@ -9,7 +9,6 @@ const capitalizeFirstLetter = (string) =>{
 
 const checkIfUserHasRank = (rankInfo) =>{
   if(rankInfo.length === 0 ) {
-    console.log('Rank Checker:',rankInfo)
     return (' Unranked');
   } else {
     return (rankInfo[0].tier + ' ' + rankInfo[0].rank);
