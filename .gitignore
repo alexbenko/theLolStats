@@ -4,3 +4,4 @@ server/rito.js
 client/dist/bundle.js
 .vscode
 champions.js
+*.png
