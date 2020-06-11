@@ -30,12 +30,9 @@ let sendSoloProfileData = (summoner,KEY,cb) =>{
         //console.log('Champ Data:',champData);
         console.log(profileData)
         profileData.champData = champData;
-        //console.log('After functions',profileData)
         //ran into a scoping issue where i called the callbaxk outside of this and it send back an empty object
         cb(profileData);
       })
     })
   })
 };
-
-console.log(sendSoloProfileData)
