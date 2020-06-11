@@ -41,7 +41,7 @@ class Search extends React.Component{
   render(){
     return (
 
-    <div className="search" style={{paddingBottom:"7em",paddingLeft:"35%"}}>
+    <div className="search" style={{paddingBottom:"7em",paddingLeft:"38%"}}>
 
         <InputGroup className="text-center" style={{width:"40%"}} >
           <FormControl
