@@ -1,7 +1,22 @@
 const getRankData    = require('./getRankData.js');
 const getProfileData = require('./getProfileData.js');
 const getChampData   = require('./getChampData.js');
-const RIOT_API_KEY = require('../rito.js');
+
+const checkIfUserHasRank = (rankInfo) =>{
+  if(rankInfo.length === 0 ) {
+    return (' Unranked');
+  } else {
+    return (rankInfo.tier + ' ' + rankInfo.rank);
+  }
+};
+
+const checkWins = (rankInfo) =>{
+  if(rankInfo.length === 0) {
+    return (' No Ranked Data Available For this Season')
+  } else {
+    return (rankInfo.wins)
+  }
+};
 
 let sendSoloProfileData = (summoner,KEY) =>{
   return new Promise ((resolve, reject)=> {
@@ -20,26 +35,30 @@ let sendSoloProfileData = (summoner,KEY) =>{
       console.log('Getting Rank Data...')
       getRankData(profileData.id, KEY)
       .then((rank)=>{
-         //order of the array returned can change from day to day
-      if(rank[0]["queueType"] === "RANKED_SOLO_5x5"){
-        profileData.tier = rank[0]["tier"];
-        profileData.rank = rank[0]["rank"];
-        profileData.wins = rank[0]["wins"];
-        profileData.hotStreak = rank[0]["hotStreak"];
+      //order of the array returned can change from day to day
 
-      } else {
-        profileData.tier = rank[1]["tier"];
-        profileData.rank = rank[1]["rank"];
-        profileData.wins = rank[1]["wins"];
-        profileData.hotStreak = rank[1]["hotStreak"];
-      }
+      if(rank[0]["queueType"] === "RANKED_SOLO_5x5"){
+          let wins = checkWins(rank[0]);
+          let rankAndTier = checkIfUserHasRank(rank[0]);
+
+          profileData.rank = rankAndTier;
+          profileData.wins = wins;
+          profileData.hotStreak = rank[0]["hotStreak"];
+
+        } else {
+          let wins = checkWins(rank[1]);
+          let rankAndTier = checkIfUserHasRank(rank[1]);
+
+          profileData.rank = rankAndTier;
+          profileData.wins = wins;
+          profileData.hotStreak = rank[1]["hotStreak"];
+        }
       })
     })
     .then(()=>{
       console.log('Getting Champion Data...')
       getChampData(profileData.id,KEY)
       .then((champData)=>{
-        console.log(profileData)
         profileData.champData = champData;
         return resolve(profileData)
       })
@@ -48,4 +67,4 @@ let sendSoloProfileData = (summoner,KEY) =>{
 };
 
 
-sendSoloProfileData("Daddy Thick",RIOT_API_KEY);
+module.exports = sendSoloProfileData;
