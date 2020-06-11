@@ -34,7 +34,7 @@ class Sr extends React.Component {
 
       this.setState({
         profileData:res.data,
-        loaded:true
+        loaded: true
       })
     })
     .catch((err)=>{
