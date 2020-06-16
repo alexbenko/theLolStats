@@ -52,8 +52,14 @@ class Sr extends React.Component {
 
   render() {
 
-    let {loaded} = this.state;
-    let {goHome} = this.state;
+    let {loaded,goHome} = this.state;
+
+    let style= {};
+    style.profile = {
+      paddingLeft:"10%",
+      color:"rgb(56, 182, 255)",
+      fontSize:"2vw"
+    }
 
     if(goHome){
       return (
@@ -63,7 +69,7 @@ class Sr extends React.Component {
       return (
 
         <div className="sr">
-             <h3 style={{color:"rgb(56, 182, 255)"}}>Solo Duo Stats</h3>
+             <h3 style={{color:"rgb(56, 182, 255)",fontSize:"3.5vw"}}>Solo Duo Stats</h3>
              <Button variant="secondary" onClick={this.goHome}>Home</Button>
           <nav className="nav">
             <Search handleSearchChange={this.searchForSummoner} />
@@ -81,13 +87,13 @@ class Sr extends React.Component {
       console.log('Loaded!!!!!!!!!!!!')
       return (
         <div className="sr">
-             <h3 style={{color:"rgb(56, 182, 255)"}}>Solo Duo Stats</h3>
+             <h3 style={{color:"rgb(56, 182, 255)",fontSize:"3.5vw"}}>Solo Duo Stats</h3>
              <Button variant="secondary" onClick={this.goHome}>Home</Button>
           <nav className="nav" style={{textAlign:"center"}}>
             <Search handleSearchChange={this.searchForSummoner} />
           </nav>
 
-          <div className ='prof'>
+          <div className ='profile container' style={style.profile}>
             <Profile profile={this.state.profileData}  />
             <MostPlayedChamps champs={this.state.profileData.champData}/>
           </div>

@@ -32,16 +32,17 @@ class Search extends React.Component{
   }
 
   clearSearch(){
-    console.log('Clicked');
     this.setState({
       search: ""
     })
   }
 
+
+
   render(){
     return (
 
-    <div className="search" style={{paddingBottom:"7em",paddingLeft:"38%"}}>
+    <div className="search" style={{paddingBottom:"2em",paddingLeft:"38%"}}>
 
         <InputGroup className="text-center" style={{width:"40%"}} >
           <FormControl
@@ -66,13 +67,5 @@ class Search extends React.Component{
 
 
 }
-
-/*
- <form onSubmit={this.submitSearch}>
-        <input type="text" placeholder="Search For Summoner.." value={this.state.value} onChange={this.handleInputChange}/>
-        <input type="submit" value="Submit"/>
-      </form>
-*/
-
 
 export default Search ;
