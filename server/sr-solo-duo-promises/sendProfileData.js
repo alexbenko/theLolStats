@@ -18,6 +18,16 @@ const checkWins = (rankInfo) =>{
   }
 };
 
+const calculateWinRate = (wins,losses) =>{
+    console.log(wins)
+    console.log(losses)
+    let total = wins + losses;
+    let winRate = (wins/total) * 100;
+    console.log(winRate)
+    return Math.floor(winRate);
+
+}
+
 let sendSoloProfileData = (summoner,KEY) =>{
   return new Promise ((resolve, reject)=> {
     let profileData = {};
@@ -25,7 +35,6 @@ let sendSoloProfileData = (summoner,KEY) =>{
     console.log('Getting Profile Data...');
     getProfileData(summoner,KEY)
     .then((profile)=>{
-      console.log(profile)
       profileData.id            = profile["id"];
       profileData.name          = profile["name"];
       profileData.summonerLevel = profile["summonerLevel"];
@@ -43,6 +52,7 @@ let sendSoloProfileData = (summoner,KEY) =>{
 
           profileData.rank = rankAndTier;
           profileData.wins = wins;
+          profileData.totalWr = calculateWinRate(rank[0]["wins"],rank[0]["losses"] );
           profileData.hotStreak = rank[0]["hotStreak"];
 
         } else {
@@ -51,12 +61,12 @@ let sendSoloProfileData = (summoner,KEY) =>{
 
           profileData.rank = rankAndTier;
           profileData.wins = wins;
+          profileData.totalWr = calculateWinRate(wins,rank[1]["losses"]);
           profileData.hotStreak = rank[1]["hotStreak"];
         }
       })
     })
     .then(()=>{
-      console.log('Getting Champion Data...')
       getChampData(profileData.id,KEY)
       .then((champData)=>{
         profileData.champData = champData;
