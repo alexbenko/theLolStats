@@ -8,8 +8,8 @@
     "build": "webpack --w --mode development",
     "build-prod": "webpack --mode production",
     "docker-build": "npm run build-prod && docker build . -t lol",
-    "docker-run": "docker run -p 4200:4200 lol",
-    "heroku-build": "npm run build-prod && heroku container:push web",
+    "docker-run": "docker run -p 4242:4242 lol",
+    "heroku-build": "npm run build-prod && heroku container:push web && npm run heroku-deploy",
     "heroku-deploy": "heroku container:release web"
   },
   "repository": {

@@ -1,5 +1,4 @@
 import React from 'react';
-import RIOT_API_KEY from '../../rito.js';
 import Button from 'react-bootstrap/Button';
 import Sr from './sr/Sr.jsx';
 import Tft from './tft/Tft.jsx';
@@ -25,7 +24,7 @@ class Welcome extends React.Component{
       return(
         <div className="lol-sr">
 
-        <Sr RIOT_API_KEY={RIOT_API_KEY}/>
+        <Sr/>
 
       </div>
       )
@@ -47,9 +46,7 @@ class Welcome extends React.Component{
               <Button variant="primary" value="sr" onClick={this.changeDisplay} size="lg">Summoner's Rift: Solo Duo</Button>
             </div>
 
-            <div className="tft-button" style={{paddingTop:"1%"}}>
-              <Button variant="success" value="tft" onClick={this.changeDisplay} size="lg">      Tft       </Button>
-            </div>
+
           </div>
 
         </div>
@@ -59,3 +56,13 @@ class Welcome extends React.Component{
 }
 
 export default Welcome
+
+
+
+
+/*
+
+<div className="tft-button" style={{paddingTop:"1%"}}>
+              <Button variant="success" value="tft" onClick={this.changeDisplay} size="lg">      Tft       </Button>
+</div>
+*/
