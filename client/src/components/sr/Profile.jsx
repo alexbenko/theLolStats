@@ -12,16 +12,15 @@ const onHotstreak = (profile) =>{
     return (
       <div style={{display: "flex", flexDirection:"row"}}>
         <WhatshotIcon style={{ color: "red",fontSize: "50" }}/>
-        <h2 style={{paddingTop:"3%"}}>On A Win Streak</h2>
+        <h1 style={{paddingTop:"3%"}}>On A Win Streak</h1>
       </div>
     )
   }
 }
 
 let style = {
-  paddingLeft:"27%",
-  paddingBottom:"2%",
-  fontSize:"10vw"
+  paddingLeft:"30%",
+  paddingBottom:"2%"
 }
 
 let Profile = ({profile}) =>{
@@ -36,11 +35,11 @@ let Profile = ({profile}) =>{
       </Grid>
 
       <Grid item>
-        <div className="profile-data" style={{fontSize:"1.8vw",paddingRight:"15%",whiteSpace: "nowrap",overflow: "hidden"}}>
-          <p style={{paddingBottom:"4.5%"}}>{`Level: ${profile.summonerLevel}`}</p>
-          <p style={{paddingBottom:"4.5%"}}>Solo-Duo Rank:{profile.rank}</p>
-          <p style={{paddingBottom:"4.5%"}}>Total Wins This Season:{profile.wins}</p>
-          <p>Season Win Rate: {profile.totalWr} %</p>
+        <div className="profile-data" style={{whiteSpace: "nowrap",overflow: "hidden"}}>
+          <h1 style={{paddingBottom:"7%"}}>{`Level: ${profile.summonerLevel}`}</h1>
+          <h1 style={{paddingBottom:"7%"}}>Solo-Duo Rank:{profile.rank}</h1>
+          <h1 style={{paddingBottom:"7%"}}>Total Wins This Season:{profile.wins}</h1>
+          <h1>Season Win Rate: {profile.totalWr} %</h1>
        </div>
       </Grid>
 
