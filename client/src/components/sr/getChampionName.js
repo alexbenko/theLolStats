@@ -22,7 +22,6 @@ let getChampionName = (idPair) =>{
   }else if(champName === "Wukong"){
     return "MonkeyKing";
   }else if(champName.includes("'")){
-    //champName.replace("'", "");
     let regex = /\'/;
     let newChampName = champName.replace(regex,"").toLowerCase();
 
@@ -35,7 +34,6 @@ let getChampionName = (idPair) =>{
   } else {
     return champName;
   }
-
 };
 
 getChampionName('64');
