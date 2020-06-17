@@ -19,14 +19,10 @@ const checkWins = (rankInfo) =>{
 };
 
 const calculateWinRate = (wins,losses) =>{
-    console.log(wins)
-    console.log(losses)
     let total = wins + losses;
     let winRate = (wins/total) * 100;
-    console.log(winRate)
     return Math.floor(winRate);
-
-}
+};
 
 let sendSoloProfileData = (summoner,KEY) =>{
   return new Promise ((resolve, reject)=> {
