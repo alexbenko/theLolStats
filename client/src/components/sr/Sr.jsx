@@ -3,7 +3,6 @@ import axios from 'axios';
 import Profile from './Profile.jsx'
 import Search from './Search.jsx'
 import MostPlayedChamps from './mostPlayedChamps.jsx';
-
 import Welcome from '../Welcome.jsx';
 import Button from 'react-bootstrap/Button';
 
@@ -56,9 +55,10 @@ class Sr extends React.Component {
 
     let style= {};
     style.profile = {
-      paddingLeft:"10%",
+
       color:"rgb(56, 182, 255)",
-      fontSize:"2vw"
+      fontSize:"2vw",
+
     }
 
     if(goHome){
@@ -93,11 +93,9 @@ class Sr extends React.Component {
             <Search handleSearchChange={this.searchForSummoner} />
           </nav>
 
-          <div className ='profile container' style={style.profile}>
-            <Profile profile={this.state.profileData}  />
-            <MostPlayedChamps champs={this.state.profileData.champData}/>
-          </div>
+          <Profile profile={this.state.profileData}  />
 
+          <MostPlayedChamps champs={this.state.profileData.champData}/>
         </div>
       );
     }
