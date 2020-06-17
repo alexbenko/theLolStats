@@ -55,10 +55,8 @@ class Sr extends React.Component {
 
     let style= {};
     style.profile = {
-
       color:"rgb(56, 182, 255)",
       fontSize:"2vw",
-
     }
 
     if(goHome){
@@ -94,7 +92,6 @@ class Sr extends React.Component {
           </nav>
 
           <Profile profile={this.state.profileData}  />
-
           <MostPlayedChamps champs={this.state.profileData.champData}/>
         </div>
       );
