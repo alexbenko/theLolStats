@@ -11,7 +11,7 @@ const getRankData = (encryptedId,key) =>{
     })
     .catch((err)=>{
       console.error("Error from getRankData:",err);
-      return reject(err);
+      reject(new Error(err))
     })
   })
 };

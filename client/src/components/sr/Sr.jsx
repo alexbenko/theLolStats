@@ -96,7 +96,11 @@ class Sr extends React.Component {
             <Profile profile={this.state.profileData}  />
           </div>
 
-          <MostPlayedChamps champs={this.state.profileData.champData}/>
+          {console.log(this.state.profileData.champData)}
+          <div className="summoner-champion-data-holder" style={{paddingLeft:"33%"}}>
+            <MostPlayedChamps champs={this.state.profileData.champData}/>
+          </div>
+
         </div>
       );
     }

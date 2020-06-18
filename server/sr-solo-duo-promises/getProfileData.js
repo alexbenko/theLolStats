@@ -12,7 +12,7 @@ const getProfileData = (search,key) => {
       .catch((error) => {
         console.log('Error From getProfileData')
         console.error(error);
-        return reject(error)
+        reject(new Error(err))
       })
     })
 };
