@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from 'react-bootstrap/Button';
+import Button from '@material-ui/core/Button';
 import Sr from './sr/Sr.jsx';
 import Tft from './tft/Tft.jsx';
 
@@ -10,12 +10,13 @@ class Welcome extends React.Component{
       module: ""
     }
 
-    this.changeDisplay = this.changeDisplay.bind(this);
+    this.changeDisplayToSr = this.changeDisplayToSr.bind(this);
   }
 
-  changeDisplay(e){
+  changeDisplayToSr(e){
+    //issue with material ui where value= doesnt actually do anything
     this.setState({
-      module: e.target.value
+      module: "sr"
     })
   }
 
@@ -23,10 +24,8 @@ class Welcome extends React.Component{
     if(this.state.module === "sr"){
       return(
         <div className="lol-sr">
-
-        <Sr/>
-
-      </div>
+          <Sr/>
+        </div>
       )
     } else if(this.state.module === "tft"){
       return(
@@ -39,11 +38,11 @@ class Welcome extends React.Component{
         <div>
           <h1>TheLolStats</h1>
           <h1 style={{textAlign:"center"}}>Welcome!</h1>
-          <h2 style={{textAlign:"center",color:"rgb(56, 182, 255)"}}>Choose A Game Mode!</h2>
+          <h2 style={{textAlign:"center"}}>Choose A Game Mode!</h2>
 
           <div style={{textAlign:"center"}} className="home-buttons-holder">
             <div className="sr-sd-holder" >
-              <Button variant="primary" value="sr" onClick={this.changeDisplay} size="lg">Summoner's Rift: Solo Duo</Button>
+              <Button variant="contained" color="primary" size="large" value="sr" onClick={this.changeDisplayToSr} style={{backgroundColor:"#A0DZEB"}}><h2 style={{color:"white"}}>Summoner's Rift: Solo Duo</h2></Button>
             </div>
 
 

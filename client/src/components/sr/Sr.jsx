@@ -2,9 +2,10 @@ import React from 'react';
 import axios from 'axios';
 import Profile from './Profile.jsx'
 import Search from './Search.jsx'
-import MostPlayedChamps from './mostPlayedChamps.jsx';
+import MostPlayedChamps from './MostPlayedChamps.jsx';
 import Welcome from '../Welcome.jsx';
-import Button from 'react-bootstrap/Button';
+import Button from '@material-ui/core/Button';
+
 
 //https://stackoverflow.com/questions/45992682/calling-functions-after-state-change-occurs-in-reactjs
 //right now only works with NA accounts
@@ -55,7 +56,7 @@ class Sr extends React.Component {
 
     let style= {};
     style.profile = {
-      color:"rgb(56, 182, 255)",
+      color:"#05386b",
       fontSize:"2vw",
     }
 
@@ -67,13 +68,13 @@ class Sr extends React.Component {
       return (
 
         <div className="sr">
-             <h3 style={{color:"rgb(56, 182, 255)",fontSize:"3.5vw"}}>Solo Duo Stats</h3>
-             <Button variant="secondary" onClick={this.goHome}>Home</Button>
+             <h3 style={{fontSize:"3.5vw"}}>Solo Duo Stats</h3>
+             <Button color="secondary" variant="contained" onClick={this.goHome}>Home</Button>
           <nav className="nav">
             <Search handleSearchChange={this.searchForSummoner} />
           </nav>
 
-          <div style={{color:"rgb(56, 182, 255)",textAlign:"center"}}>
+          <div style={{textAlign:"center"}}>
             <h2>Type in any League Of Legends Summoner Name and click Search</h2>
             <h2>This is not case sensitive and spaces do not matter</h2>
             <h3>c9zven = C9Zven = C9 Zven</h3>
@@ -85,13 +86,16 @@ class Sr extends React.Component {
       console.log('Loaded!!!!!!!!!!!!')
       return (
         <div className="sr">
-             <h3 style={{color:"rgb(56, 182, 255)",fontSize:"3.5vw"}}>Solo Duo Stats</h3>
-             <Button variant="secondary" onClick={this.goHome}>Home</Button>
-          <nav className="nav" style={{textAlign:"center"}}>
+             <h2>Solo Duo Stats</h2>
+             <Button color="secondary" variant="contained" onClick={this.goHome}>Home</Button>
+          <nav className="nav" >
             <Search handleSearchChange={this.searchForSummoner} />
           </nav>
 
-          <Profile profile={this.state.profileData}  />
+          <div className="profile-holder" style={{paddingLeft:"15%"}}>
+            <Profile profile={this.state.profileData}  />
+          </div>
+
           <MostPlayedChamps champs={this.state.profileData.champData}/>
         </div>
       );

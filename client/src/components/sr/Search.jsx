@@ -1,8 +1,7 @@
 import React from 'react';
-import Button from 'react-bootstrap/Button';
-import InputGroup from 'react-bootstrap/InputGroup';
-import Form from 'react-bootstrap/Form';
-import FormControl from 'react-bootstrap/FormControl'
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
+
 
 class Search extends React.Component{
   constructor(props){
@@ -42,22 +41,9 @@ class Search extends React.Component{
   render(){
     return (
 
-    <div className="search" style={{paddingBottom:"2em",paddingLeft:"38%"}}>
-
-        <InputGroup className="text-center" style={{width:"40%"}} >
-          <FormControl
-
-            value={this.state.search}
-            onChange={this.handleInputChange}
-            placeholder="Search For A Summoner..."
-            aria-label="Search For A Summoner..."
-            aria-describedby="basic-addon2"
-            />
-          <InputGroup.Append>
-            <Button variant="primary" onClick={this.submitSearch}>Search</Button>
-          </InputGroup.Append>
-        </InputGroup>
-
+    <div className="search" style={{paddingBottom:"2em",paddingLeft:"38%",paddingRight:"25%",display:"flex",flexDirection:"row"}}>
+        <input style={{width:"50%"}}type="text" value={this.state.search}  placeholder="Search For A Summoner..."onChange={this.handleInputChange}/>
+        <Button onClick={this.submitSearch} color="secondary" variant="contained">Search</Button>
     </div>
     )
 
