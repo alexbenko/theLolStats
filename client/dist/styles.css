@@ -3,46 +3,27 @@
 }
 
 body{
-  background-color: #282c34;
+  background-color: #161748;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  color: #E5EAf5 !important
 }
 
 h1{
-  color: rgb(56, 182, 255);
+  color: #E5EAf5;
 }
 
 h2{
-  color: rgb(56, 182, 255);
+  color: #E5EAf5;
 }
 
 .prof{
-  color: rgb(56, 182, 255);
+  color: #E5EAf5;
 }
 
 .search{
   text-align:center;
   width: 100%;
-}
-
-.champions{
-  border: 3px solid rgb(56, 182, 255);
-}
-
-.champions-container{
-
-  border: 5px solid black;
-  font-size: large;
-  padding: 10px;
-  border-radius: 15px;
-}
-
-.rank{
-  height: 100px;
-}
-
-body {
-  margin: 0;
-  font-family: 'Roboto', sans-serif;
-  color: rgb(56, 182, 255)
 }
 
 li{
