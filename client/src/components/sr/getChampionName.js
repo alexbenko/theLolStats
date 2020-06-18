@@ -5,6 +5,7 @@ const capitalizeFirstLetter = (string) =>{
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
+//this is necessary so my website can display the proper image for each champion
 let getChampionName = (idPair) =>{
   let champName = champInfo[idPair];
 
@@ -36,6 +37,5 @@ let getChampionName = (idPair) =>{
   }
 };
 
-getChampionName('64');
 
 export default getChampionName;
