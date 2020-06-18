@@ -1,6 +1,7 @@
-const getRankData    = require('./getRankData.js');
-const getProfileData = require('./getProfileData.js');
-const getChampData   = require('./getChampData.js');
+const getRankData     = require('./getRankData.js');
+const getProfileData  = require('./getProfileData.js');
+const getChampData    = require('./getChampData.js');
+const getChampMatches = require('./getChampMatches.js');
 
 const checkIfUserHasRank = (rankInfo) =>{
   if(rankInfo.length === 0 ) {
@@ -32,6 +33,7 @@ let sendSoloProfileData = (summoner,KEY) =>{
     getProfileData(summoner,KEY)
     .then((profile)=>{
       profileData.id            = profile["id"];
+      profileData.actId         = profile["accountId"];
       profileData.name          = profile["name"];
       profileData.summonerLevel = profile["summonerLevel"];
       profileData.profileIconId = profile["profileIconId"];
@@ -66,11 +68,31 @@ let sendSoloProfileData = (summoner,KEY) =>{
       getChampData(profileData.id,KEY)
       .then((champData)=>{
         profileData.champData = champData;
-        return resolve(profileData)
+        resolve(profileData)
       })
     })
+  })
+  .catch((err)=>{
+    reject(err);
   })
 };
 
 
 module.exports = sendSoloProfileData;
+
+
+/*
+.then(()=>{
+        profileData.champData.map((champ)=>{
+          champ.winRate = 0;
+          //resolve(profileData)
+          let championId = champ["championId"];
+          getChampMatches(profileData.actId,KEY)
+          .then((matches)=>{
+            console.log(matches["totalGames"])
+            champ.totalMatches = matches["totalGames"];
+
+          })
+        })
+      })
+*/

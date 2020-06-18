@@ -11,7 +11,7 @@ const getChampData = (encryptedId,key) =>{
       })
       .catch((error) => {
         console.error('Error from getChampData:',error);
-        return reject(error);
+        reject(new Error(err))
       });
   })
 };
