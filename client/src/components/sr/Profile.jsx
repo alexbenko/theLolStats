@@ -11,41 +11,48 @@ const onHotstreak = (profile) =>{
   if(profile.hotStreak){
     return (
       <div style={{display: "flex", flexDirection:"row"}}>
-        <WhatshotIcon style={{ color: "red",fontSize: "50" }}/>
-        <h1 style={{paddingTop:"3%"}}>On A Win Streak</h1>
+        <WhatshotIcon style={{ color: "red",fontSize: "4vw" }}/>
+        <h1 style={{paddingTop:"3%", fontSize:"2.9vw"}}>On A Win Streak</h1>
       </div>
     )
   }
 }
 
 let style = {
-  paddingLeft:"30%",
-  paddingBottom:"2%"
+  paddingBottom:"2%",
+  border:"10px outset #7d8485",
+  backgroundColor:"#328CC1",
+  height:"auto",
+  width:"85%"
 }
 
 let Profile = ({profile}) =>{
   return (
+
     <div className="prof" style={style}>
-       <Grid container direction="row" spacing={10}>
-        <Grid item>
-          <h1>{`${profile.name}`}</h1>
-          <Avatar src={`http://ddragon.leagueoflegends.com/cdn/10.9.1/img/profileicon/${profile.profileIconId}.png`} style={{width:"10em", height:"10em"}}/>
+       <Grid container direction="row">
+        <Grid item >
+          <h1 style={{fontSize:"2.9vw"}}>{`${profile.name}`}</h1>
+          <Avatar src={`http://ddragon.leagueoflegends.com/cdn/10.9.1/img/profileicon/${profile.profileIconId}.png`} style={{width:"15vw",height:"15vw"}}/>
           {onHotstreak(profile)}
 
       </Grid>
 
-      <Grid item>
-        <div className="profile-data" style={{whiteSpace: "nowrap",overflow: "hidden"}}>
-          <h1 style={{paddingBottom:"7%"}}>{`Level: ${profile.summonerLevel}`}</h1>
-          <h1 style={{paddingBottom:"7%"}}>Solo-Duo Rank:{profile.rank}</h1>
-          <h1 style={{paddingBottom:"7%"}}>Total Wins This Season:{profile.wins}</h1>
-          <h1>Season Win Rate: {profile.totalWr} %</h1>
+
+      <Grid item >
+        <div className="profile-data" style={{whiteSpace: "nowrap",paddingLeft:"15%",paddingTop:"2%"}}>
+          <h1 style={{paddingBottom:"6%",fontSize:"2.9vw"}}>{`Level: ${profile.summonerLevel}`}</h1>
+          <h1 style={{paddingBottom:"6%",fontSize:"2.9vw"}}>Solo-Duo Rank:{profile.rank}</h1>
+          <h1 style={{paddingBottom:"6%",fontSize:"2.9vw"}}>Total Wins This Season:{profile.wins}</h1>
+          <h1 style={{fontSize:"2.9vw"}}>Season Win Rate: {profile.totalWr} %</h1>
        </div>
       </Grid>
+
 
     </Grid>
 
   </div>
+
   )
 
 };
