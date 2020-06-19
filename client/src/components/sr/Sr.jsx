@@ -5,6 +5,7 @@ import Search from './Search.jsx'
 import MostPlayedChamps from './MostPlayedChamps.jsx';
 import Welcome from '../Welcome.jsx';
 import Button from '@material-ui/core/Button';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 
 //https://stackoverflow.com/questions/45992682/calling-functions-after-state-change-occurs-in-reactjs
@@ -16,10 +17,6 @@ class Sr extends React.Component {
     super(props)
     this.state = {
       loaded:false,
-      currentProfile: [],
-      encyptedId: null,
-      currentChamps: [],
-      rankData: [],
       goHome: false,
       profileData:{}
     }
@@ -28,17 +25,22 @@ class Sr extends React.Component {
   }
 
   searchForSummoner(summoner){
+    this.setState({searching:!this.state.searching},()=>console.log(this.state.searching))
 
     axios.get(`/sr/${summoner}`,{params: {toSearch: summoner}})
     .then((res)=>{
 
       this.setState({
         profileData:res.data,
-        loaded: true
+        loaded: true,
+        searching:!this.state.searching
       })
     })
     .catch((err)=>{
+      this.setState({loaded:false})
       console.error('Error Retrieving Profile Data',err);
+      alert('Error Finding Summoner. This could be an issue with the League of Legends Servers or you tried to search a summoner that doesnt exist. See: https://developer.riotgames.com/api-status/  for the status');
+
     })
 
   }
@@ -49,6 +51,7 @@ class Sr extends React.Component {
       goHome: true
     })
   }
+
 
   render() {
 
@@ -82,8 +85,7 @@ class Sr extends React.Component {
 
         </div>
       );
-    } else if(loaded){
-      console.log('Loaded!!!!!!!!!!!!')
+    }else if(loaded){
       return (
         <div className="sr">
              <h2>Solo Duo Stats</h2>
@@ -96,10 +98,11 @@ class Sr extends React.Component {
             <Profile profile={this.state.profileData}  />
           </div>
 
-          {console.log(this.state.profileData.champData)}
           <div className="summoner-champion-data-holder" style={{paddingLeft:"33%"}}>
             <MostPlayedChamps champs={this.state.profileData.champData}/>
           </div>
+
+
 
         </div>
       );

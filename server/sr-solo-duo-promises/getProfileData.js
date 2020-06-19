@@ -10,9 +10,7 @@ const getProfileData = (search,key) => {
         resolve(res.data);
       })
       .catch((error) => {
-        console.log('Error From getProfileData')
-        console.error(error);
-        reject(new Error(err))
+        reject(new Error(error.response.status))
       })
     })
 };

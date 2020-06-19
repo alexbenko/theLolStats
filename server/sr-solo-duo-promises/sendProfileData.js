@@ -38,6 +38,7 @@ let sendSoloProfileData = (summoner,KEY) =>{
       profileData.summonerLevel = profile["summonerLevel"];
       profileData.profileIconId = profile["profileIconId"];
     })
+    .catch((err)=>reject(new Error(err)))
     .then(()=>{
       console.log('Getting Rank Data...')
       getRankData(profileData.id, KEY)
@@ -64,6 +65,7 @@ let sendSoloProfileData = (summoner,KEY) =>{
         }
       })
     })
+    .catch((err)=>reject(new Error(err)))
     .then(()=>{
       getChampData(profileData.id,KEY)
       .then((champData)=>{
@@ -71,9 +73,7 @@ let sendSoloProfileData = (summoner,KEY) =>{
         resolve(profileData)
       })
     })
-  })
-  .catch((err)=>{
-    reject(err);
+    .catch((err)=>reject(new Error(err)))
   })
 };
 

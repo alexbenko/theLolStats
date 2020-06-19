@@ -9,7 +9,6 @@ const getChampMatches = (actId,KEY) =>{
       resolve(data.data)
     })
     .catch((err)=>{
-      console.log(err)
       reject(new Error(err))
     })
 

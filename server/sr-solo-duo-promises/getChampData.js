@@ -10,8 +10,8 @@ const getChampData = (encryptedId,key) =>{
         resolve(res.data);
       })
       .catch((error) => {
-        console.error('Error from getChampData:',error);
-        reject(new Error(err))
+        console.error('Error from getChampData');
+        reject(new Error(error.response.status))
       });
   })
 };
