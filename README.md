@@ -14,10 +14,9 @@ Highlights:
 
 Future Features: <br/>
   1. Some sort of notification if the summoner can't be found
-  2. Win rates for each of a summoner's champion data
-  3. Match history
-  4. Tft stats
-  5. Clash support
+  2. Match history
+  3. Tft stats
+  4. Clash support
 
 <br />
 Related: <br />
