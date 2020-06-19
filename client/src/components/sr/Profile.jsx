@@ -11,8 +11,8 @@ const onHotstreak = (profile) =>{
   if(profile.hotStreak){
     return (
       <div style={{display: "flex", flexDirection:"row"}}>
-        <WhatshotIcon style={{ color: "red",fontSize: "4vw" }}/>
-        <h1 style={{paddingTop:"3%", fontSize:"2.9vw"}}>On A Win Streak</h1>
+        <WhatshotIcon style={{ color: "red",fontSize: "3vw" }}/>
+        <h1 style={{paddingTop:"3%", fontSize:"2.5vw"}}>On A Win Streak</h1>
       </div>
     )
   }
@@ -33,7 +33,7 @@ let Profile = ({profile}) =>{
        <Grid container direction="row">
         <Grid item >
           <h1 style={{fontSize:"2.9vw"}}>{`${profile.name}`}</h1>
-          <Avatar src={`http://ddragon.leagueoflegends.com/cdn/10.9.1/img/profileicon/${profile.profileIconId}.png`} style={{width:"15vw",height:"15vw"}}/>
+          <Avatar src={`http://ddragon.leagueoflegends.com/cdn/10.9.1/img/profileicon/${profile.profileIconId}.png`} style={{width:"13vw",height:"13vw"}}/>
           {onHotstreak(profile)}
 
       </Grid>

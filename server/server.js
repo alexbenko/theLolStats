@@ -23,8 +23,8 @@ app.use('/sr/:summoner',(req,res)=>{
     res.status(200).send(results);
   })
   .catch((err)=>{
-    console.log(err)
-    res.status(404).send("Error Finding Summoner... ¯\_(ツ)_/¯");
+    console.log('From server:',err)
+    res.status(404).send(err);
   })
 
 })
