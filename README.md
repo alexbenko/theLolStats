@@ -1,7 +1,8 @@
 # theLolStats
 
+<h1>TheLolStats</h1>
 
-<h2>This is a simple league of legends stat website. Type in your username and it will display your solo/duo rank, amount of wins this season, and mastery points for every champion you've played.</h2>
+<p>This is a simple league of legends stat website. Type in your username and it will display your solo/duo rank, amount of wins this season, and mastery points for every champion you've played. I've built this entirely by myself.</p>
 <br/>
 
 <h2>Visit Live Version At:</h2> <br />
