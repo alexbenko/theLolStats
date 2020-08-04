@@ -1,4 +1,34 @@
-const champInfo = {
+const axios = require('axios');
+
+//gets current champ data and returns it in the champion id, champ name key pairs
+const getChampNames = () =>{
+  let currentVersion = 'https://ddragon.leagueoflegends.com/api/versions.json';
+
+  axios.get(currentVersion)
+  .then((result)=>{
+    let version = result.data[0];
+    console.log(version)
+    axios.get(`https://ddragon.leagueoflegends.com/cdn/${version}/data/en_US/champion.json`)
+    .then((result)=>{
+      let champData = result.data
+      let champions = {};
+
+      for(let key in champData['data']){
+        let currentChampKey = champData['data'][key]['key'];
+        if(champions[currentChampKey] === undefined){
+          champions[currentChampKey] = champData['data'][key]['name'];
+          //console.log(champions[currentChampKey])
+        }
+      }
+      //console.log(champions)
+      return champions
+    })
+  })
+}
+
+//returns this object
+//just so it doesnt have to make this request every time
+let curent = {
 '1': 'Annie',
 '2': 'Olaf',
 '3': 'Galio',
@@ -146,7 +176,8 @@ const champInfo = {
 '518': 'Neeko',
 '523': 'Aphelios',
 '555': 'Pyke',
-'875': 'Sett'
-};
+'875': 'Sett',
+'876': 'Lillia' };
 
-  export default champInfo
+
+export default curent
