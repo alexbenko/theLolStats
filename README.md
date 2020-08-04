@@ -15,7 +15,7 @@ https://thelolstats.herokuapp.com/
      see: https://github.com/alexbenko/theLolStats/blob/0abdecbddcbeaac31515c59ba39b2160b08148f7/client/src/components/sr/championId.js#L5
   <br/>
      
-  2. Promise based GET requests to the League Of Legends API
+  2.Promise based GET requests to the League Of Legends API
       see: https://github.com/alexbenko/theLolStats/tree/master/server/sr-solo-duo-promises
 
 <br />
