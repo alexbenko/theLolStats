@@ -1,5 +1,11 @@
 //converts the championid to a champion name
-import champInfo from './championId.js';
+import getChampionIds from './championId.js';
+
+let champInfo = {};
+getChampionIds()
+.then((champs)=>{
+  champInfo = champs
+})
 
 const capitalizeFirstLetter = (string) =>{
   return string.charAt(0).toUpperCase() + string.slice(1);
@@ -8,7 +14,6 @@ const capitalizeFirstLetter = (string) =>{
 //this is necessary so my website can display the proper image for each champion
 let getChampionName = (idPair) =>{
   let champName = champInfo[idPair];
-
   //edgecases
   if(champName === "Nunu & Willump"){
     return "Nunu";
