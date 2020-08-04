@@ -8,7 +8,7 @@ const capitalizeFirstLetter = (string) =>{
 //this is necessary so my website can display the proper image for each champion
 let getChampionName = (idPair) =>{
   let champName = champInfo[idPair];
-
+  console.log(champName)
   //edgecases
   if(champName === "Nunu & Willump"){
     return "Nunu";
