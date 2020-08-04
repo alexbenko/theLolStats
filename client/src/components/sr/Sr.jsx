@@ -25,7 +25,7 @@ class Sr extends React.Component {
   }
 
   searchForSummoner(summoner){
-    this.setState({searching:!this.state.searching},()=>console.log(this.state.searching))
+    this.setState({searching:!this.state.searching})
 
     axios.get(`/sr/${summoner}`,{params: {toSearch: summoner}})
     .then((res)=>{
@@ -46,7 +46,6 @@ class Sr extends React.Component {
   }
 
   goHome(){
-    console.log('Home')
     this.setState({
       goHome: true
     })
